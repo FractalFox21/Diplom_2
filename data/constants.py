@@ -4,18 +4,24 @@ T_EMAIL = "test_test@mail.ru"
 T_PASS = "Test101+"
 T_NAME = "Testov Test"
 
-auth_test_user_data = {
-    "email": "test_test@mail.ru",
-    "password": "Test101+"}
 
-test_user_data = {
-    "email": "test_test@mail.ru",
-    "password": "Test101+",
-    "name": "Testov Test"}
+AUTH_USER_DATA = {
+    "email": T_EMAIL,
+    "password": T_PASS}
 
-invalid_data_user = {
+INVALID_AUTH_DATA = {
+        "email": "test0000v@mail.ru",
+        "password": "Test10000"}
+
+TEST_USER_DATA = {
+    "email": T_EMAIL,
+    "password": T_PASS,
+    "name": T_NAME}
+
+INVALID_USER_DATA = {
         "email": "",
-        "password": "Test101+"}
+        "password": T_PASS}
+
 
 
 
