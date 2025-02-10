@@ -27,3 +27,9 @@ class Queries:
         url = f"{BASE_URL}{URL_ORDER}"
         response = requests.post(url, json=data,  headers={'Authorization': f'{token}'})
         return response
+
+    @staticmethod
+    def get_check_order(token=None):
+        url = f"{BASE_URL}{URL_ORDER}"
+        response = requests.get(url, headers={'Authorization': f'{token}'})
+        return response
