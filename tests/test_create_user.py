@@ -1,6 +1,6 @@
 import allure
 
-from data.constants import TEST_USER_DATA, INVALID_MAIL_USER_DATA, INVALID_EMAIL_USER_DATA, INVALID_NAME_USER_DATA
+from data.constants import TEST_USER_DATA
 from data.queries import Queries
 
 @allure.suite('Создание пользователя.')
@@ -29,8 +29,8 @@ class TestCreateUser:
     @allure.description('Отправляем запрос на создание пользователя без указания логина.\
     Ожидаемый статус код 403.\
     Ожидаемый ответ запроса содержит "success" is False.')
-    def test_create_user_without_email_code_401(self):
-        response = Queries.post_create_user(data=INVALID_EMAIL_USER_DATA)
+    def test_create_user_without_email_code_401(self, generating_user_data_no_email=None):
+        response = Queries.post_create_user(data=generating_user_data_no_email)
         data = response.json()
         assert response.status_code == 403, f"Статус код: {response.status_code} не соответствует ожидаемому, ожидалось 403."
         assert data["success"] is False, "Поле 'success' не соответствует ожидаемому,ожидалось False"
@@ -39,8 +39,8 @@ class TestCreateUser:
     @allure.description('Отправляем запрос на создание пользователя без указания пароля.\
     Ожидаемый статус код 403.\
     Ожидаемый ответ запроса содержит "success" is False.')
-    def test_create_user_without_pass_code_401(self):
-        response = Queries.post_create_user(data=INVALID_MAIL_USER_DATA)
+    def test_create_user_without_pass_code_401(self, generating_user_data_no_pass=None):
+        response = Queries.post_create_user(data=generating_user_data_no_pass)
         data = response.json()
         assert response.status_code == 403, f"Статус код: {response.status_code} не соответствует ожидаемому, ожидалось 403."
         assert data["success"] is False, "Поле 'success' не соответствует ожидаемому,ожидалось False"
@@ -49,8 +49,8 @@ class TestCreateUser:
     @allure.description('Отправляем запрос на создание пользователя без указания имени.\
     Ожидаемый статус код 403.\
     Ожидаемый ответ запроса содержит "success" is False.')
-    def test_create_user_without_name_code_401(self):
-        response = Queries.post_create_user(data=INVALID_NAME_USER_DATA)
+    def test_create_user_without_name_code_401(self, generating_user_data_no_name=None):
+        response = Queries.post_create_user(data=generating_user_data_no_name)
         data = response.json()
         assert response.status_code == 403, f"Статус код: {response.status_code} не соответствует ожидаемому, ожидалось 403."
         assert data["success"] is False, "Поле 'success' не соответствует ожидаемому,ожидалось False"

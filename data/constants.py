@@ -24,28 +24,3 @@ TEST_USER_DATA = {
     "email": T_EMAIL,
     "password": T_PASS,
     "name": T_NAME}
-
-#данные несуществующего пользователя
-INVALID_AUTH_DATA = {
-    "email": "test0000v@mail.ru",
-    "password": "Test10000"}
-
-#данные пользователя без email
-INVALID_MAIL_USER_DATA = {
-    "email": "",
-    "password": T_PASS,
-    "name": T_NAME}
-
-#данные пользователя без password
-INVALID_EMAIL_USER_DATA = {
-    "email": "test0000v@mail.ru",
-    "password": "",
-    "name": T_NAME}
-
-#данные пользователя без name
-INVALID_NAME_USER_DATA = {
-    "email": "test0000v@mail.ru",
-    "password": T_PASS,
-    "name": ""}
-
-
