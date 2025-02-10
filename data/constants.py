@@ -5,6 +5,7 @@ ORDER = {"ingredients": [
                  "61c0c5a71d1f82001bdaaa72",
                  "61c0c5a71d1f82001bdaaa76"]}
 
+#данные для оформления заказа с неверным хешем ингредиента
 INVALID_ORDER  = {"ingredients": [
                  "61c0c5a71d",
                  "61c0c5a71d1f82001bdaaa76"]}
@@ -24,7 +25,7 @@ TEST_USER_DATA = {
     "password": T_PASS,
     "name": T_NAME}
 
-#данные пользователя, которого нет в системе
+#данные несуществующего пользователя
 INVALID_AUTH_DATA = {
     "email": "test0000v@mail.ru",
     "password": "Test10000"}

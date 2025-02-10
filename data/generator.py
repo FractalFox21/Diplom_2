@@ -15,12 +15,11 @@ class GenerateUsers:
             return fake_user_data
 
     @staticmethod
-    def generate_fake_email():      # метод генерирует словарь с логином, паролем и именем
+    def generate_fake_email():      # метод генерирует email
             fake = Faker()
             return fake.email()
 
     @staticmethod
-    def generate_fake_name():      # метод генерирует словарь с логином, паролем и именем
+    def generate_fake_name():      # метод генерирует имя
             fake = Faker()
             return fake.name()
-
