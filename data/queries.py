@@ -1,8 +1,5 @@
-import pytest
 import requests
-
-from data.constants import EDIT_BACK_USER_DATA
-from data.handles import BASE_URL, URL_REGISTER, URL_AUTH, URL_USER
+from data.handles import BASE_URL, URL_REGISTER, URL_AUTH, URL_USER, URL_ORDER
 
 
 class Queries:
@@ -25,9 +22,8 @@ class Queries:
         response = requests.patch(url, json=data,  headers={'Authorization': f'{token}'})
         return response
 
-
     @staticmethod
-    def delete_user(data=None, token=None):
-        url = f"{BASE_URL}{URL_USER}"
-        requests.patch(url, json=data,  headers={'Authorization': f'{token}'})
-
+    def post_create_order(data=None, token=None):
+        url = f"{BASE_URL}{URL_ORDER}"
+        response = requests.post(url, json=data,  headers={'Authorization': f'{token}'})
+        return response

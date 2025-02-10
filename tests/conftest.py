@@ -1,10 +1,8 @@
 import pytest
 import requests
-
 from data.generator import GenerateUsers
 from data.handles import BASE_URL, URL_USER
 from data.queries import Queries
-
 
 
 #фикстура для создания и удаления временного пользователя
