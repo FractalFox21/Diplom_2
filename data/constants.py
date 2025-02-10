@@ -30,7 +30,3 @@ TEST_USER_DATA = {
 INVALID_USER_DATA = {
     "email": "",
     "password": T_PASS}
-
-
-
-
