@@ -1,6 +1,6 @@
 import allure
 
-from data.constants import ORDER, INVALID_ORDER
+from data.constants import ORDER, INVALID_ORDER, NO_INGREDIENTS, ERROR_TITLE
 from data.queries import Queries
 
 @allure.suite('Создание заказа.')
@@ -33,7 +33,10 @@ class TestCreateOrder:
     def test_create_order_auth_user_no_ing_code_400(self, create_and_delete_user):
             user = create_and_delete_user
             response = Queries.post_create_order(token=user[1])
+            data = response.json()
             assert response.status_code == 400, f"Статус код: {response.status_code} не соответствует ожидаемому, ожидалось 400."
+            assert data["message"] == NO_INGREDIENTS, f"Сообщение об ошибке: {data["message"]} не соответствует ожидаемому, ожидалось {NO_INGREDIENTS}."
+
 
     @allure.title('Негативный тест оформления заказа с авторизованным пользователем и неверным хэшем ингредиента')
     @allure.description('Авторизуем пользователя, отправляем запрос на создание заказа с указанием токена и ингредиентами. У одного ингредиента неверный хэш.\
@@ -42,4 +45,5 @@ class TestCreateOrder:
             user = create_and_delete_user
             response = Queries.post_create_order(data=INVALID_ORDER, token=user[1])
             assert response.status_code == 500, f"Статус код: {response.status_code} не соответствует ожидаемому, ожидалось 500."
+            assert ERROR_TITLE in response.text, f"В ответе не содержится информация об ошибке, ожидалось {NO_INGREDIENTS}."
 

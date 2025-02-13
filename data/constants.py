@@ -24,3 +24,10 @@ TEST_USER_DATA = {
     "email": T_EMAIL,
     "password": T_PASS,
     "name": T_NAME}
+
+#сообщение об ошибке, вы должны быть авторизованы
+NO_ACСESS = "You should be authorised"
+#сообщение об ошибке, нужно предоставить ids ингредиентов
+NO_INGREDIENTS = "Ingredient ids must be provided"
+#сообщение об ошибке в HTML
+ERROR_TITLE = "<title>Error</title>"
